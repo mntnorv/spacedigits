@@ -1,0 +1,17 @@
+{
+  "uuid": "a07a0afc-74f8-4e19-ab5d-027dc903f8e3",
+  "shortName": "Space Digits",
+  "longName": "Space Digits",
+  "companyName": "Mantas Norvaisa",
+  "versionCode": 1,
+  "versionLabel": "1.0.0",
+  "watchapp": {
+    "watchface": true
+  },
+  "appKeys": {
+    "dummy": 0
+  },
+  "resources": {
+    "media": []
+  }
+}
