@@ -1,8 +1,8 @@
 #ifndef INCLUDED_SD_MATH_H
 #define INCLUDED_SD_MATH_H
 
-#define HALF_WIDTH  72
-#define HALF_HEIGHT 84
+#define HALF_WIDTH  71
+#define HALF_HEIGHT 83
 
 //==============================================================================
 

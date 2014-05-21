@@ -53,8 +53,9 @@ static void poly_layer_update_proc(Layer *layer, GContext* ctx) {
   int pos = data->pos;
   int i;
 
-  if (NULL == poly)
+  if (NULL == poly) {
     return;
+  }
 
   static GPoint screen_pos[32];
 
@@ -74,6 +75,8 @@ static void poly_layer_update_proc(Layer *layer, GContext* ctx) {
   // Draw line according to vertex idx
   int prev_vertex_idx = -1;
   int vertex_idx = -1;
+  GPoint from, to;
+
   graphics_context_set_stroke_color(ctx, GColorWhite);
 
   for (i = 0; i < poly->idx_num; ++i) {
@@ -83,7 +86,13 @@ static void poly_layer_update_proc(Layer *layer, GContext* ctx) {
       if (vertex_idx == prev_vertex_idx) {
         prev_vertex_idx = -1;
       } else {
-        graphics_draw_line(ctx, screen_pos[prev_vertex_idx], screen_pos[vertex_idx]);
+        from = screen_pos[prev_vertex_idx];
+        to   = screen_pos[vertex_idx];
+
+        graphics_draw_line(ctx, from, to);
+        graphics_draw_line(ctx, GPoint(from.x + 1, from.y), GPoint(to.x + 1, to.y));
+        graphics_draw_line(ctx, GPoint(from.x, from.y + 1), GPoint(to.x, to.y + 1));
+
         prev_vertex_idx = vertex_idx;
       }
     } else {
@@ -166,7 +175,6 @@ static void init(void) {
   for (i = 0; i < NUM_DIGITS; i++) {
     digit_layers[i] = poly_layer_create(i);
     layer_add_child(root_layer, digit_layers[i]);
-    poly_layer_set_poly_ref(digit_layers[i], &digit_polys[0]);
   }
 
   tick_timer_service_subscribe(MINUTE_UNIT, handle_minute_tick);
