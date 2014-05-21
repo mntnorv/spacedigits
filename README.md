@@ -3,7 +3,7 @@ spacedigits
 
 A Pebble watchface.
 
-![Screenshot](https://github.com/mntnorv/spacedigits/raw/screens/01.png)
+![Screenshot](https://github.com/mntnorv/spacedigits/raw/master/screens/01.png)
 
 Based on concept by slayer1551 (http://www.mypebblefaces.com/concepts/1/60/),
 which is based on the TokioFlash Kisai Space Digits watch
